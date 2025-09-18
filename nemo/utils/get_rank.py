@@ -21,7 +21,8 @@ def is_global_rank_zero():
     """Helper function to determine if the current process is global_rank 0 (the main process)"""
     # Try to get the pytorch RANK env var
     # RANK is set by torch.distributed.launch
-    rank = get_envint("RANK", None)
+    # rank = get_envint("RANK", None)
+    rank = get_envint("LOCAL_RANK", None)
     if rank is not None:
         return rank == 0
 
